@@ -44,7 +44,11 @@ class MainActivity : ComponentActivity() {
 fun MyBox() {
     Box(modifier = Modifier.fillMaxSize(),
     contentAlignment = Alignment.BottomCenter) {
-        Box(modifier = Modifier.width(50.dp).height(50.dp).background(Color.Cyan))
+        /**
+         * Ao remover os valores de width e height abaixo, o layout interpreta como "wrapcontent", e o bloco
+         * azul desaparece
+         */
+        Box(modifier = Modifier.background(Color.Cyan))
     }
 }
 
