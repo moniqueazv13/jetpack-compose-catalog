@@ -42,13 +42,24 @@ class MainActivity : ComponentActivity() {
  */
 @Composable
 fun MyBox() {
-    Box(modifier = Modifier.fillMaxSize(),
-    contentAlignment = Alignment.BottomCenter) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.BottomCenter
+    ) {
         /**
          * Ao remover os valores de width e height abaixo, o layout interpreta como "wrapcontent", e o bloco
          * azul desaparece
          */
-        Box(modifier = Modifier.background(Color.Cyan))
+        Box(modifier = Modifier.background(Color.Cyan)) {
+            Text(text = "Isso é um exemplo")
+
+            /**
+             * Enquanto o bloco azul não tiver widht e height definidos,
+             * ele irá seguir o tamanho do componente Text.
+             * Porém, caso seja definidos, isso limita a expansão do componente Texte e pode distorcer a
+             * exibição do texto, já que o mesmo depende da expansividade do box.
+             */
+        }
     }
 }
 
