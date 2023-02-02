@@ -52,17 +52,24 @@ fun MyBox() {
          * Ao remover os valores de width e height abaixo, o layout interpreta como "wrapcontent", e o bloco
          * azul desaparece
          */
-        Box(modifier = Modifier
-            .background(Color.Cyan)
-            .width(30.dp)
-            .height(30.dp)
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .background(Color.Cyan)
+                .width(200.dp)
+                .height(200.dp)
+
+                /**
+                 * Para que seja possível visualizar o restante do texto, você poderá utilizar o verticalScroll
+                 */
+                .verticalScroll(
+                    rememberScrollState()
+                )
+        ) {
 
             /**
-             * Para que seja possível visualizar o restante do texto, você poderá utilizar o verticalScroll
+             * Para alinhar o texto, será necessário usar o contentAlignment no componente Boz acima.
              */
-            .verticalScroll(
-                rememberScrollState()
-            )) {
             Text(text = "Isso é um exemplo")
 
             /**
