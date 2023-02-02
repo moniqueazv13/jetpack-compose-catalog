@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -44,13 +46,23 @@ class MainActivity : ComponentActivity() {
 fun MyBox() {
     Box(
         modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.BottomCenter
+        contentAlignment = Alignment.Center
     ) {
         /**
          * Ao remover os valores de width e height abaixo, o layout interpreta como "wrapcontent", e o bloco
          * azul desaparece
          */
-        Box(modifier = Modifier.background(Color.Cyan)) {
+        Box(modifier = Modifier
+            .background(Color.Cyan)
+            .width(30.dp)
+            .height(30.dp)
+
+            /**
+             * Para que seja possível visualizar o restante do texto, você poderá utilizar o verticalScroll
+             */
+            .verticalScroll(
+                rememberScrollState()
+            )) {
             Text(text = "Isso é um exemplo")
 
             /**
