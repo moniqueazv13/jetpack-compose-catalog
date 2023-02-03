@@ -38,6 +38,18 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun MyColumn() {
+    /**
+     * Ao criar vários componentes de texto, eles não se ordenam,
+     * faz-se necessário outro componente para ordena-los
+     */
+    Text(text = "Exemplo1")
+    Text(text = "Exemplo2")
+    Text(text = "Exemplo3")
+    Text(text = "Exemplo4")
+}
+
 /**
  * Através do Modifier é possível alterar o alinhamento dos filhos com a propriedade
  * contentAlignment = Aligment.Center
@@ -86,6 +98,6 @@ fun MyBox() {
 @Composable
 fun DefaultPreview() {
     JetpackComposeCatalogTheme {
-        MyBox()
+        MyColumn()
     }
 }
